@@ -1,0 +1,8 @@
+# local-only credentials for testing
+test-accounts.md
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
