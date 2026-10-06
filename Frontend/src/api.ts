@@ -6,9 +6,12 @@ export const getToken = () => localStorage.getItem(TOKEN_KEY)
 export const setToken = (token: string) => localStorage.setItem(TOKEN_KEY, token)
 export const clearToken = () => localStorage.removeItem(TOKEN_KEY)
 
-const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000',
-})
+// Dev: Vite proxies /api -> backend, so the browser never needs direct access
+// to the backend port (no CORS / port-forwarding issues).
+// Prod: set VITE_API_BASE_URL to the backend URL and it is used directly.
+const baseURL = import.meta.env.VITE_API_BASE_URL || '/api'
+
+const api = axios.create({ baseURL })
 
 api.interceptors.request.use((config) => {
   const token = getToken()
