@@ -65,7 +65,7 @@ export default function Scene3D() {
     ring.rotation.x = Math.PI / 2.4
     group.add(ring)
 
-    // DNA helix strands (spheres + rungs) — glass feel via transparency
+    // DNA helix strands (spheres + rungs) with a glass feel via transparency
     const helixGroup = new THREE.Group()
     const helixMaterial = new THREE.MeshStandardMaterial({
       color: 0x7dd3fc,
